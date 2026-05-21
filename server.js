@@ -113,8 +113,8 @@ app.post('/api/book', async (req, res) => {
 // ─── Twilio: Incoming Call ─────────────────────────────────────────────────────
 // Twilio webhook: configure as POST https://your-railway-url/call/incoming
 app.post('/call/incoming', async (req, res) => {
-  const callSid = req.body.CallSid;
-  const callerPhone = req.body.From || '';
+const callSid = req.body.CallSid || `test-${Date.now()}`;
+const callerPhone = req.body.From || '';
 
   try {
     // Create fresh session for this call
